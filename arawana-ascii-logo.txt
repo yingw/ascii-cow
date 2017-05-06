@@ -1,52 +1,3 @@
-# 制作自己的IMAGE-COW和定制COW
-
-## 
-
-### ascii-cow
-git clone https://github.com/andrewmacheret/ascii-cow.git
-### cowsay原版
-git clone https://github.com/tnalpgge/rank-amateur-cowsay.git
-### im2a
-git clone https://github.com/tzvetkoff/im2a.git
-
-基于rank-amateur-cowsay，改名为cowsay
-mv rank-amateur-cowsay cowsay
-
-新加定制的cow
-
-ascii-cow/cows/arawana.cow
-
-```txt
-##
-## A cow with a arawana, from yinguowei@cn.wilmar-intl.com
-##
-$the_cow = <<EOC;
-               $thoughts |
-                $thoughts|
-     |\\\\\\\\_________
- /=_/            o \\ <_
- |=_           (   v/
- |/ \\__________+___/   (R)
-     |///    |/|/
-EOC
-```
-（有点小问题，\、$thoughts在最后不空格）
-
-
-```sh
-tar -czvf cowsay.tar.gz cowsay
-
-tar -czvf im2a.tar.gz im2a
-
-mkdir node_modules
-
-docker build -t yinguowei/ascii-cow .
-docker run --rm -it yinguowei/ascii-cow ./ascii-cow.sh -u "$url" -w 80 -c "-f arawana"
-
-```
-
-输出
-```txt
  __________________________________________________________________________________ 
 / MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM \
 | MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM |
@@ -71,14 +22,3 @@ docker run --rm -it yinguowei/ascii-cow ./ascii-cow.sh -u "$url" -w 80 -c "-f ar
  |=_           (   v/
  |/ \__________+___/   (R)
      |///    |/|/
-
-```
-
-提交镜像
-
-
-```
-docker login
-docker push yinguowei/ascii-cow
-```
-[yinguowei/ascii-cow - Docker Hub](https://hub.docker.com/r/yinguowei/ascii-cow/)

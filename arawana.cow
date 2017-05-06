@@ -1,0 +1,12 @@
+##
+## A cow with a arawana, from yinguowei@cn.wilmar-intl.com
+##
+$the_cow = <<EOC;
+               $thoughts |
+                $thoughts|
+     |\\\\\\\\_________
+ /=_/            o \\ <_
+ |=_           (   v/
+ |/ \\__________+___/   (R)
+     |///    |/|/
+EOC
